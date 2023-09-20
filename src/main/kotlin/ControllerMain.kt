@@ -1,4 +1,5 @@
 import java.lang.Exception
+import java.util.Date
 
 // --- when
  fun cases(obj:Any){
@@ -98,7 +99,98 @@ fun daduAcak()
     println("$result adalah angka keberuntunganmu dari ${numbers[0]} sampai ${numbers.last()}")
 }
 
-fun reverseArray () {
-    val numbers = listOf(1,2,3,4,5,6)
+fun reverseAngka()
+{
+    var numbers =1234
+    print("Kebalikan dari $numbers ")
+    var reverse = 0
+//    ketika numbers tidak berisi 0 atau ada isinya
+    while(numbers != 0)
+    {
+        // 1234 % 10 = 4
+        val digit = numbers % 10
 
+        // 0 * 10 + 4 = 4
+        reverse = reverse * 10 + digit
+
+        /*
+        iterasi numbers pertama 4/10 = 0.4
+        iterasi numbers kedua  3/10=0.3
+         iterasi numbers ketiga 2/10=0.2
+         iterasi numbers keempat 1/10=0.1
+         iterasi numbers kelima 0/10=0
+
+         maka numbers == 0 dan iterasi dihentikan
+         */
+        numbers /= 10
+    }
+    println("adalah $reverse")
+}
+
+fun luasPersegi()
+{
+    print("Masukan panjang sisi 1 : ")
+    var sisi1 = readLine()!!.toDouble()
+    print("Masukan panjang sisi 2 : ")
+    var sisi2 = readLine()!!.toDouble()
+    var result = sisi1*sisi2
+    println("Hasil dari luas persegi adalah : ${result.toInt()}")
+
+}
+
+fun DolarKeRupiah()
+{
+    print("Masukan dolar : ")
+    var dolar = readln()!!.toDouble()
+    val rupiah = 15.38800
+    var result = dolar * rupiah
+    println("Hasil dari $dolar adalah Rp$result ")
+}
+
+
+//mencari nilai terbesar
+fun CariNilaiTerbesar()
+{
+    print("Masukan nilai pertama: ")
+    var nilaiPertama = readln()!!.toDouble()
+    print("Masukan nilai Kedua: ")
+    var nilaiKedua = readln()!!.toDouble()
+    print("Masukan nilai Ketiga: ")
+    var nilaiKetiga = readln()!!.toDouble()
+
+    if(nilaiPertama > nilaiKedua && nilaiPertama > nilaiKetiga)
+    {
+        println("Nilai $nilaiPertama lebih besari dari nilai $nilaiKedua dan $nilaiKetiga")
+    }else if(nilaiKedua > nilaiPertama && nilaiKedua > nilaiKetiga)
+    {
+        println("Nilai $nilaiKedua lebih besari dari nilai $nilaiPertama dan $nilaiKetiga")
+    }else if(nilaiPertama == nilaiKedua && nilaiPertama == nilaiKetiga) {
+        println("Nilai $nilaiKedua ,  $nilaiPertama dan $nilaiKetiga adalah sama")
+
+    }else{
+        println("Nilai $nilaiKetiga lebih besari dari nilai $nilaiPertama dan $nilaiKedua")
+
+    }
+}
+
+//null safety
+fun describeString( maybeStringNull :String?):String {
+    if(maybeStringNull != null && maybeStringNull.length > 0)
+    {
+        return "panjang string adalah ${maybeStringNull.length}"
+    }else{
+        return "String kosong"
+    }
+
+}
+
+fun IterableSequence()
+{
+    val words = "Ini adalah teks dummy yang dibuat secara manual dan diketik oleh fahmy".split(" ")
+    val lengthList =words.filter{ println("filter: $it"); it.length > 3 }
+        .map { println("length : ${it.length}");it.length }
+        .take(2)
+
+    println("Lengths of first 4 words longer than 3 chars:")
+    println(lengthList)
 }
